@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Personal-Website/', // Must match your repo name exactly
+  base: '/Curt-Tanaka-Website/', // Must match your repo name exactly
   plugins: [
     react(), 
     tailwindcss(),
