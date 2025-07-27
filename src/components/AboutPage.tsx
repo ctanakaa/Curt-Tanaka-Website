@@ -67,15 +67,12 @@ export default function AboutPage() {
           </div>
 
           {/* Certifications & Awards Card (optional, can be removed if not needed) */}
-          {/*
           <div className="backdrop-blur-md bg-white/80 dark:bg-zinc-800/80 rounded-2xl shadow-lg p-8 animate-fade-in border border-blue-100 dark:border-zinc-700">
             <h3 className="text-2xl font-bold text-blue-700 dark:text-blue-200 mb-4">Certifications & Awards</h3>
             <ul className="list-disc pl-6 text-zinc-700 dark:text-zinc-200 text-base">
-              <li>[Certification or Award Name, Issuer, Date]</li>
-              <li>[Another certification, award, or recognition]</li>
+              <li> <a href="https://ischool.uw.edu/event/ischool-showcase-2025/awards">The Spark Award for Creativity iSchool Showcase 2025 </a></li>
             </ul>
           </div>
-          */}
         </div>
       </div>
       <style>{`

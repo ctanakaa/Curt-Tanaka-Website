@@ -24,10 +24,18 @@ export const projects = [
   {
     title: "Lightrail Parking Project",
     image: "https://via.placeholder.com/400x200?text=Project+Three",
-    description: "A third project with a unique feature or accomplishment.",
+    description: "A project that uses AWS and google mapsto create a parking tracking system for light rail stations in the greater Seattle Area.",
     techStack: ["Typescript", "AWS", "Tailwind CSS"],
     github: "https://github.com/yourusername/project-three",
     demo: "#",
     challenges: "Describe a key challenge and how you solved it.",
   },
+  {
+    title: "Commuter Companion",
+    image: "https://via.placeholder.com/400x200?text=Project+Four",
+    description: "A design project focused on gamifying commuter experiences and promiting public transportation for UW students.",
+    techStack: ["Figma"],
+    github: "",
+    demo: "https://www.figma.com/proto/ixo0LxNvirSvUv5y8j6QqH/Commuter-Companion?node-id=0-1&t=ypT97LQ4qOngXlWm-1",
+  }
 ]; 

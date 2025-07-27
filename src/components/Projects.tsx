@@ -29,7 +29,9 @@ const technologyIcons: Record<string, string> = {
 
 export default function Projects() {
   const [selected, setSelected] = useState(0);
-  const selectedProject = projects[selected];
+  // Only show the first 3 projects in the featured section
+  const featuredProjects = projects.slice(0, 3);
+  const selectedProject = featuredProjects[selected];
 
   return (
     <section id="projects" className="">
@@ -48,7 +50,7 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left: Project List */}
           <div className="flex flex-col gap-4">
-            {projects.map((proj, idx) => (
+            {featuredProjects.map((proj, idx) => (
               <button
                 key={proj.title}
                 onClick={() => setSelected(idx)}
