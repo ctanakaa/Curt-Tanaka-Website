@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import profile from "../assets/profile.png";
 import ScrollingRoles from "./ScrollingRoles";
 
@@ -46,12 +47,12 @@ export default function Summary() {
                 </a>
               </div>
             </div>
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold shadow-xl hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition text-lg animate-bounce-in text-center"
             >
               More About Me
-            </a>
+            </Link>
           </div>
         </div>
         
