@@ -32,6 +32,7 @@ function App() {
                 </>
               }
             />
+            console.log("ProjectsPage");
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />

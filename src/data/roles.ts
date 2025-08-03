@@ -5,8 +5,6 @@ export const roles = [
   "Business Owner",
   "Frontend Developer", 
   "Backend Developer",
-  "TypeScript Developer",
-  "Java Developer",
   "Problem Solver",
   "Team Player"
 ]; 

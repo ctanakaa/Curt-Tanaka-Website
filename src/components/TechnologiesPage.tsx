@@ -56,6 +56,17 @@ const styles = `
   --border: #e5e7eb;
   --accent: #2563eb;
 }
+
+.dark {
+  --bg: #18181b;
+  --card-bg: #1f2937;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  --text-main: #f3f4f6;
+  --text-muted: #d1d5db;
+  --border: #374151;
+  --accent: #60a5fa;
+}
+
 body {
   background: var(--bg);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -106,6 +117,10 @@ body {
   background: #f0f4ff;
   box-shadow: 0 2px 8px rgba(37,99,235,0.07);
   transform: translateY(-2px) scale(1.04);
+}
+.dark .tech-item:hover {
+  background: #1e3a8a;
+  box-shadow: 0 2px 8px rgba(96,165,250,0.2);
 }
 .tech-icon {
   width: 40px;

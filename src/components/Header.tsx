@@ -21,7 +21,7 @@ export default function Header() {
         {/* Left Bubble: Logo/Home */}
         <Link
           to="/"
-          className="h-16 backdrop-blur-md bg-white/60 dark:bg-zinc-800/60 shadow-lg rounded-full px-6 py-3 flex items-center font-bold text-xl text-black border border-white/30 dark:border-zinc-700/40 hover:scale-105 transition-transform duration-200"
+          className="h-16 backdrop-blur-md bg-white/60 dark:bg-zinc-800/60 shadow-lg rounded-full px-6 py-3 flex items-center font-bold text-xl text-black dark:text-white border border-white/30 dark:border-zinc-700/40 hover:scale-105 transition-transform duration-200"
           aria-label="Home"
         >
           CT
@@ -82,7 +82,7 @@ export default function Header() {
             className="hover:scale-110 transition-transform"
             aria-label="GitHub"
           >
-            <img src={github} alt="GitHub" className="w-7 h-7" />
+            <img src={github} alt="GitHub" className="w-7 h-7 dark:invert" />
           </a>
           <a
             href="https://www.linkedin.com/in/curt-tanaka/"
@@ -91,7 +91,7 @@ export default function Header() {
             className="hover:scale-110 transition-transform"
             aria-label="LinkedIn"
           >
-            <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+            <img src={linkedin} alt="LinkedIn" className="w-7 h-7 dark:invert" />
           </a>
         </div>
       </div>
