@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import JavaIcon from "../assets/Java.svg";
-import TypeScriptIcon from "../assets/TypeScript.svg";
-import PythonIcon from "../assets/Python.svg";
-import JavaScriptIcon from "../assets/JavaScript.svg";
+import JavaIcon from "../assets/java.svg";
+import TypeScriptIcon from "../assets/typescript.svg";
+import PythonIcon from "../assets/python.svg";
+import JavaScriptIcon from "../assets/javascript.svg";
 import ReactIcon from "../assets/react.svg";
-import TailwindIcon from "../assets/tailwind-css.svg";
-import NodeIcon from "../assets/Node.js.svg";
-import NextIcon from "../assets/Next.js.svg";
-import MongoDBIcon from "../assets/MongoDB.svg";
+import TailwindIcon from "../assets/tailwindcss.svg";
+import NodeIcon from "../assets/nodejs.svg";
+import NextIcon from "../assets/nextjs.svg";
+import MongoDBIcon from "../assets/mongodb.svg";
 import { projects } from "../data/projects";
 
 const technologyIcons: Record<string, string> = {
@@ -34,18 +34,18 @@ export default function ProjectsPage() {
           {projects.map((proj) => (
             <div
               key={proj.title}
-              className="category-card animate-fade-in flex flex-col md:flex-row"
+              className="bg-white dark:bg-[#1f2937] rounded-2xl shadow-lg border border-zinc-200 dark:border-[#374151] animate-fade-in flex flex-col md:flex-row overflow-hidden"
             >
               <img
                 src={proj.image}
                 alt={proj.title}
-                className="w-full md:w-2/5 h-64 object-cover object-center border-b md:border-b-0 md:border-r border-zinc-200 dark:border-zinc-800"
+                className="w-full md:w-2/5 h-64 object-cover object-center border-b md:border-b-0 md:border-r border-zinc-200 dark:border-zinc-700"
               />
               <div className="p-8 flex-1 flex flex-col gap-4">
                 <h3 className="text-2xl font-bold text-blue-700 dark:text-blue-200 mb-1">
                   {proj.title}
                 </h3>
-                <p className="text-zinc-700 dark:text-zinc-200 mb-2">
+                <p className="text-zinc-700 dark:text-zinc-100 mb-2">
                   {proj.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-2">
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
                     </a>
                   )}
                 </div>
-                <div className="bg-zinc-100 dark:bg-zinc-800/60 rounded-lg p-3 text-sm text-zinc-600 dark:text-zinc-300">
+                <div className="bg-zinc-100 dark:bg-zinc-700/60 rounded-lg p-3 text-sm text-zinc-600 dark:text-zinc-100">
                   <span className="font-semibold">Challenge:</span> {proj.challenges}
                 </div>
               </div>
@@ -96,9 +96,6 @@ export default function ProjectsPage() {
         }
         .animate-fade-in { animation: fade-in 1s cubic-bezier(.68,-0.55,.27,1.55); }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem 2rem 1rem; }
-        .category-card { background: #fff; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem; padding: 2rem 1.5rem 1.5rem 1.5rem; border: 1px solid #e5e7eb; transition: box-shadow 0.2s; }
-        .category-card:hover { box-shadow: 0 4px 24px rgba(37,99,235,0.08); }
-        .category-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.2rem; color: #2563eb; letter-spacing: -0.5px; }
       `}</style>
     </section>
   );

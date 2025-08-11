@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import JavaIcon from "../assets/Java.svg";
-import TypeScriptIcon from "../assets/TypeScript.svg";
-import PythonIcon from "../assets/Python.svg";
-import JavaScriptIcon from "../assets/JavaScript.svg";
+import JavaIcon from "../assets/java.svg";
+import TypeScriptIcon from "../assets/typescript.svg";
+import PythonIcon from "../assets/python.svg";
+import JavaScriptIcon from "../assets/javascript.svg";
 import ReactIcon from "../assets/react.svg";
-import TailwindIcon from "../assets/tailwind-css.svg";
-import NodeIcon from "../assets/Node.js.svg";
-import NextIcon from "../assets/Next.js.svg";
-import MongoDBIcon from "../assets/MongoDB.svg";
-import NetlifyIcon from "../assets/Netlify.svg";
-import GradleIcon from "../assets/Gradle.svg";
+import TailwindIcon from "../assets/tailwindcss.svg";
+import NodeIcon from "../assets/nodejs.svg";
+import NextIcon from "../assets/nextjs.svg";
+import MongoDBIcon from "../assets/mongodb.svg";
+import NetlifyIcon from "../assets/netlify.svg";
+import GradleIcon from "../assets/gradle.svg";
 import { projects } from "../data/projects";
 
 const technologyIcons: Record<string, string> = {
@@ -35,7 +35,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="">
-      <div className="rounded-3xl shadow-2xl bg-white/80 dark:bg-zinc-900/80 px-8 py-12 max-w-3xl mx-auto mt-34 animate-fade-in">
+      <div className="rounded-3xl shadow-2xl bg-white/80 dark:bg-[#1f2937] px-8 py-12 max-w-3xl mx-auto mt-34 animate-fade-in border border-transparent dark:border-[#374151]">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-3xl font-extrabold text-left text-blue-800 dark:text-blue-300">
             Featured Projects

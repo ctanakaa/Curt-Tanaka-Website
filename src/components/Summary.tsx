@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import profile from "../assets/profile.png";
 import ScrollingRoles from "./ScrollingRoles";
 
@@ -8,7 +9,7 @@ export default function Summary() {
       id="home"
       className="flex items-start justify-center relative pt-8 pb-30"
     >
-      <div className="backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 rounded-3xl shadow-2xl px-8 py-12 flex flex-col items-center gap-8 max-w-3xl w-full animate-fade-in">
+      <div className="backdrop-blur-md bg-white/70 dark:bg-[#1f2937] rounded-3xl shadow-2xl px-8 py-12 flex flex-col items-center gap-8 max-w-3xl w-full animate-fade-in border border-transparent dark:border-[#374151]">
         {/* Top section with photo and contact info */}
         <div className="flex flex-col md:flex-row items-center gap-6 w-full">
           <div className="w-56 h-64 overflow-hidden rounded-2xl shadow-xl border-white dark:border-zinc-800 bg-blue-800 dark:bg-blue-300 flex items-center justify-center">
@@ -25,8 +26,8 @@ export default function Summary() {
               Hi, I'm Curt Tanaka
             </h1>
             <ScrollingRoles />
-            <div className="flex items-center gap-4 animate-fade-in delay-200">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4 animate-fade-in delay-200 dark:text-zinc-300">
+              <div className="flex items-center gap-2 dark:text-zinc-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-black-500">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -46,12 +47,12 @@ export default function Summary() {
                 </a>
               </div>
             </div>
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold shadow-xl hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition text-lg animate-bounce-in text-center"
             >
               More About Me
-            </a>
+            </Link>
           </div>
         </div>
         

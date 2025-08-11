@@ -37,5 +37,13 @@ export const projects = [
     techStack: ["Figma"],
     github: "",
     demo: "https://www.figma.com/proto/ixo0LxNvirSvUv5y8j6QqH/Commuter-Companion?node-id=0-1&t=ypT97LQ4qOngXlWm-1",
+  },
+  {
+    title: "Trail Tales",
+    image: "https://via.placeholder.com/400x200?text=Project+Four",
+    description: "A web application that allows users to save, share, and discover trails in the greater Seattle area.",
+    techStack: ["Javascript", "React", "Firebase", "HTML", "CSS", "Bootstrap"],
+    github: "https://github.com/ctanakaa/trail-tales",
+    demo: "https://www.figma.com/proto/ixo0LxNvirSvUv5y8j6QqH/Commuter-Companion?node-id=0-1&t=ypT97LQ4qOngXlWm-1",
   }
 ]; 

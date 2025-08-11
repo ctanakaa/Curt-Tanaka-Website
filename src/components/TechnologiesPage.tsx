@@ -1,49 +1,69 @@
 import React from "react";
+import { technologies, getTechnologiesByCategory, getCategories, type Technology } from "../data/technologies";
 
-// Programming Languages
-import JavaIcon from "../assets/Java.svg";
-import TypeScriptIcon from "../assets/TypeScript.svg";
-import PythonIcon from "../assets/Python.svg";
-import JavaScriptIcon from "../assets/JavaScript.svg";
-import RIcon from "../assets/R.svg";
-
-// Frontend Technologies
+// Import all icons statically
+import JavaIcon from "../assets/java.svg";
+import TypeScriptIcon from "../assets/typescript.svg";
+import PythonIcon from "../assets/python.svg";
+import JavaScriptIcon from "../assets/javascript.svg";
+import RIcon from "../assets/r.svg";
 import ReactIcon from "../assets/react.svg";
-import TailwindIcon from "../assets/tailwind-css.svg";
-import HTML5Icon from "../assets/HTML5.svg";
-import CSS3Icon from "../assets/CSS3.svg";
-import IonicIcon from "../assets/Ionic.svg";
-import BootstrapIcon from "../assets/Bootstrap.svg";
-import ViteIcon from "../assets/Vite.js.svg";
-
-// Backend Technologies
-import NodeIcon from "../assets/Node.js.svg";
-// Express icon not available, fallback to Node.js or custom
-const ExpressIcon = NodeIcon;
-
-// Databases
-import MongoDBIcon from "../assets/MongoDB.svg";
-import PostgreSQLIcon from "../assets/PostgresSQL.svg";
-import MySQLIcon from "../assets/MySQL.svg";
-import FirebaseIcon from "../assets/Firebase.svg";
-
-// DevOps & Tools
-// Git icon not available, fallback to GitLab or custom
+import TailwindIcon from "../assets/tailwindcss.svg";
+import HTML5Icon from "../assets/html5.svg";
+import CSS3Icon from "../assets/css3.svg";
+import IonicIcon from "../assets/ionic.svg";
+import BootstrapIcon from "../assets/bootstrap.svg";
+import ViteIcon from "../assets/vitejs.svg";
+import NodeIcon from "../assets/nodejs.svg";
+import MongoDBIcon from "../assets/mongodb.svg";
+import PostgreSQLIcon from "../assets/postgressql.svg";
+import MySQLIcon from "../assets/mysql.svg";
+import FirebaseIcon from "../assets/firebase.svg";
 import GitHubIcon from "../assets/github.svg";
-import GitLabIcon from "../assets/GitLab.svg";
-import AzureIcon from "../assets/Azure.svg";
-// Docker, Vercel, Netlify icons not available, fallback to Azure or custom
-const DockerIcon = AzureIcon;
-const VercelIcon = AzureIcon;
-const NetlifyIcon = AzureIcon;
+import GitLabIcon from "../assets/gitlab.svg";
+import AzureIcon from "../assets/azure.svg";
+import NetlifyIcon from "../assets/netlify.svg";
+import NextIcon from "../assets/nextjs.svg";
+import GradleIcon from "../assets/gradle.svg";
+import VSCodeIcon from "../assets/vscode.svg";
+import IntelliJIcon from "../assets/intellij-idea.svg";
+import EclipseIcon from "../assets/eclipse-ide.svg";
+import XcodeIcon from "../assets/xcode.svg";
 
-// Frameworks & Libraries
-import NextIcon from "../assets/Next.js.svg";
-import GradleIcon from "../assets/Gradle.svg";
-// Jest icon not available, fallback to Gradle or custom
-const JestIcon = GradleIcon;
+// Icon mapping
+const iconMap: Record<string, string> = {
+  "java.svg": JavaIcon,
+  "typescript.svg": TypeScriptIcon,
+  "python.svg": PythonIcon,
+  "javascript.svg": JavaScriptIcon,
+  "r.svg": RIcon,
+  "react.svg": ReactIcon,
+  "tailwindcss.svg": TailwindIcon,
+  "html5.svg": HTML5Icon,
+  "css3.svg": CSS3Icon,
+  "ionic.svg": IonicIcon,
+  "bootstrap.svg": BootstrapIcon,
+  "vitejs.svg": ViteIcon,
+  "nodejs.svg": NodeIcon,
+  "mongodb.svg": MongoDBIcon,
+  "postgressql.svg": PostgreSQLIcon,
+  "mysql.svg": MySQLIcon,
+  "firebase.svg": FirebaseIcon,
+  "github.svg": GitHubIcon,
+  "gitlab.svg": GitLabIcon,
+  "azure.svg": AzureIcon,
+  "netlify.svg": NetlifyIcon,
+  "nextjs.svg": NextIcon,
+  "gradle.svg": GradleIcon,
+  "vscode.svg": VSCodeIcon,
+  "intellij-idea.svg": IntelliJIcon,
+  "eclipse-ide.svg": EclipseIcon,
+  "xcode.svg": XcodeIcon,
+};
 
-import VSCodeIcon from "../assets/VisualStudioCode.svg";
+const getIcon = (iconName: string): string => {
+  return iconMap[iconName] || NodeIcon; // Fallback to Node.js icon
+};
 
 const styles = `
 :root {
@@ -56,6 +76,17 @@ const styles = `
   --border: #e5e7eb;
   --accent: #2563eb;
 }
+
+.dark {
+  --bg: #18181b;
+  --card-bg: #1f2937;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  --text-main: #f3f4f6;
+  --text-muted: #d1d5db;
+  --border: #374151;
+  --accent: #60a5fa;
+}
+
 body {
   background: var(--bg);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -107,6 +138,10 @@ body {
   box-shadow: 0 2px 8px rgba(37,99,235,0.07);
   transform: translateY(-2px) scale(1.04);
 }
+.dark .tech-item:hover {
+  background: #1e3a8a;
+  box-shadow: 0 2px 8px rgba(96,165,250,0.2);
+}
 .tech-icon {
   width: 40px;
   height: 40px;
@@ -137,84 +172,41 @@ body {
 }
 `;
 
-const TechnologiesPage: React.FC = () => (
-  <div className="min-h-screen bg-gray-50 dark:bg-zinc-900 transition-colors pt-20">
-    <style>{styles}</style>
-    <h1 className="text-3xl font-extrabold mb-10 text-center text-blue-800 dark:text-blue-300">Technologies</h1>
-    <div className="container">
+const TechnologiesPage: React.FC = () => {
+  const categories = getCategories();
 
-      {/* Programming Languages */}
-      <section className="category-card">
-        <div className="category-title">Programming Languages</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={JavaIcon} alt="Java" width={40} height={40} /></span><span className="tech-label">Java</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={TypeScriptIcon} alt="TypeScript" width={40} height={40} /></span><span className="tech-label">TypeScript</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={PythonIcon} alt="Python" width={40} height={40} /></span><span className="tech-label">Python</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={JavaScriptIcon} alt="JavaScript" width={40} height={40} /></span><span className="tech-label">JavaScript</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={RIcon} alt="R" width={40} height={40} /></span><span className="tech-label">R</span></div>
-        </div>
-      </section>
-
-      {/* Frontend Technologies */}
-      <section className="category-card">
-        <div className="category-title">Frontend Technologies</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={ReactIcon} alt="React" width={40} height={40} /></span><span className="tech-label">React</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={TailwindIcon} alt="Tailwind CSS" width={40} height={40} /></span><span className="tech-label">Tailwind CSS</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={HTML5Icon} alt="HTML5" width={40} height={40} /></span><span className="tech-label">HTML5</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={CSS3Icon} alt="CSS3" width={40} height={40} /></span><span className="tech-label">CSS3</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={IonicIcon} alt="Ionic" width={40} height={40} /></span><span className="tech-label">Ionic</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={BootstrapIcon} alt="Bootstrap" width={40} height={40} /></span><span className="tech-label">Bootstrap</span></div>
-        </div>
-      </section>
-
-      {/* Backend Technologies */}
-      <section className="category-card">
-        <div className="category-title">Backend Technologies</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={NodeIcon} alt="Node.js" width={40} height={40} /></span><span className="tech-label">Node.js</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={ExpressIcon} alt="Express" width={40} height={40} /></span><span className="tech-label">Express</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={ExpressIcon} alt="REST APIs" width={40} height={40} /></span><span className="tech-label">REST APIs</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={ExpressIcon} alt="Express.js" width={40} height={40} /></span><span className="tech-label">Express.js</span></div>
-        </div>
-      </section>
-
-      {/* Databases */}
-      <section className="category-card">
-        <div className="category-title">Databases</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={MongoDBIcon} alt="MongoDB" width={40} height={40} /></span><span className="tech-label">MongoDB</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={PostgreSQLIcon} alt="PostgreSQL" width={40} height={40} /></span><span className="tech-label">PostgreSQL</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={MySQLIcon} alt="MySQL" width={40} height={40} /></span><span className="tech-label">MySQL</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={FirebaseIcon} alt="Firebase" width={40} height={40} /></span><span className="tech-label">Firebase</span></div>
-        </div>
-      </section>
-
-      {/* DevOps & Tools */}
-      <section className="category-card">
-        <div className="category-title">DevOps & Tools</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={GitHubIcon} alt="Git" width={40} height={40} /></span><span className="tech-label">Git</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={GitLabIcon} alt="GitLab" width={40} height={40} /></span><span className="tech-label">GitLab</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={AzureIcon} alt="Azure" width={40} height={40} /></span><span className="tech-label">Azure</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={VercelIcon} alt="Vercel" width={40} height={40} /></span><span className="tech-label">Vercel</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={NetlifyIcon} alt="Netlify" width={40} height={40} /></span><span className="tech-label">Netlify</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={DockerIcon} alt="Docker" width={40} height={40} /></span><span className="tech-label">Docker</span></div>
-        </div>
-      </section>
-
-      {/* Frameworks & Libraries */}
-      <section className="category-card">
-        <div className="category-title">Frameworks & Libraries</div>
-        <div className="tech-grid">
-          <div className="tech-item"><span className="tech-icon"><img src={NextIcon} alt="Next.js" width={40} height={40} /></span><span className="tech-label">Next.js</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={GradleIcon} alt="Gradle" width={40} height={40} /></span><span className="tech-label">Gradle</span></div>
-          <div className="tech-item"><span className="tech-icon"><img src={JestIcon} alt="Jest" width={40} height={40} /></span><span className="tech-label">Jest</span></div>
-        </div>
-      </section>
-
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-zinc-900 transition-colors pt-20">
+      <style>{styles}</style>
+      <h1 className="text-3xl font-extrabold mb-10 text-center text-blue-800 dark:text-blue-300">Technologies</h1>
+      <div className="container">
+        {categories.map((category) => {
+          const categoryTechnologies = getTechnologiesByCategory(category);
+          
+          return (
+            <section key={category} className="category-card">
+              <div className="category-title">{category}</div>
+              <div className="tech-grid">
+                {categoryTechnologies.map((tech) => (
+                  <div key={tech.name} className="tech-item">
+                    <span className="tech-icon">
+                                             <img 
+                         src={getIcon(tech.icon)} 
+                         alt={tech.name} 
+                         width={40} 
+                         height={40} 
+                       />
+                    </span>
+                    <span className="tech-label">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TechnologiesPage;
