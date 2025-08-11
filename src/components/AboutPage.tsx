@@ -37,13 +37,6 @@ export default function AboutPage() {
                 <ul className="list-disc pl-6 text-zinc-700 dark:text-zinc-100 text-base">
                   <li>Dean's List</li>
                 </ul>
-                <div className="font-semibold text-lg text-zinc-800 dark:text-zinc-100">Shorewood Highschool</div>
-                <div className="text-zinc-600 dark:text-zinc-300 text-sm mb-1">2016-2020</div>
-                <ul className="list-disc pl-6 text-zinc-700 dark:text-zinc-100 text-base">
-                  <li>Dean's List</li>
-                  <li>AP Scholar with Distinction</li>
-                  <li>U.S. Army Reserve National Scholar/Athlete Award</li>
-                </ul>
               </div>
             </div>
           </div>

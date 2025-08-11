@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import JavaIcon from "../assets/Java.svg";
-import TypeScriptIcon from "../assets/TypeScript.svg";
-import PythonIcon from "../assets/Python.svg";
-import JavaScriptIcon from "../assets/JavaScript.svg";
+import JavaIcon from "../assets/java.svg";
+import TypeScriptIcon from "../assets/typescript.svg";
+import PythonIcon from "../assets/python.svg";
+import JavaScriptIcon from "../assets/javascript.svg";
 import ReactIcon from "../assets/react.svg";
-import TailwindIcon from "../assets/tailwind-css.svg";
-import NodeIcon from "../assets/Node.js.svg";
-import NextIcon from "../assets/Next.js.svg";
-import MongoDBIcon from "../assets/MongoDB.svg";
+import TailwindIcon from "../assets/tailwindcss.svg";
+import NodeIcon from "../assets/nodejs.svg";
+import NextIcon from "../assets/nextjs.svg";
+import MongoDBIcon from "../assets/mongodb.svg";
 import { projects } from "../data/projects";
 
 const technologyIcons: Record<string, string> = {
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
           {projects.map((proj) => (
             <div
               key={proj.title}
-              className="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg border border-zinc-200 dark:border-zinc-700 animate-fade-in flex flex-col md:flex-row overflow-hidden"
+              className="bg-white dark:bg-[#1f2937] rounded-2xl shadow-lg border border-zinc-200 dark:border-[#374151] animate-fade-in flex flex-col md:flex-row overflow-hidden"
             >
               <img
                 src={proj.image}

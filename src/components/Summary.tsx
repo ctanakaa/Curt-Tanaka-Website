@@ -9,7 +9,7 @@ export default function Summary() {
       id="home"
       className="flex items-start justify-center relative pt-8 pb-30"
     >
-      <div className="backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 rounded-3xl shadow-2xl px-8 py-12 flex flex-col items-center gap-8 max-w-3xl w-full animate-fade-in">
+      <div className="backdrop-blur-md bg-white/70 dark:bg-[#1f2937] rounded-3xl shadow-2xl px-8 py-12 flex flex-col items-center gap-8 max-w-3xl w-full animate-fade-in border border-transparent dark:border-[#374151]">
         {/* Top section with photo and contact info */}
         <div className="flex flex-col md:flex-row items-center gap-6 w-full">
           <div className="w-56 h-64 overflow-hidden rounded-2xl shadow-xl border-white dark:border-zinc-800 bg-blue-800 dark:bg-blue-300 flex items-center justify-center">

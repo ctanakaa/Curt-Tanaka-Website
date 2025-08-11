@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Summary from "./components/Summary";
-import AboutSection from "./components/Background";
 import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
 import ResumeButton from "./components/ResumeButton";
@@ -32,7 +31,6 @@ function App() {
                 </>
               }
             />
-            console.log("ProjectsPage");
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />
